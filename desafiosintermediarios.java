@@ -3,76 +3,76 @@ package desafios;
 import java.util.Scanner;
 
 public class desafiosintermediarios {
+
     public static void main(String[] args) {
+
         Scanner caixadetexto = new Scanner(System.in);
         int opcao;
+
+        // Criando objetos UMA VEZ só
+        ninjas naruto = new ninjas();
+        naruto.nome = "Naruto";
+        naruto.aldeia = "Aldeia da Folha";
+        naruto.idade = 17;
+        naruto.missao = "Salvar um cachorro";
+        naruto.niveldedificuldade = "Fácil";
+        naruto.statusdamissao = false;
+
+        ninjas sasuke = new ninjas();
+        sasuke.nome = "Sasuke";
+        sasuke.aldeia = "Aldeia da Folha";
+        sasuke.idade = 18;
+        sasuke.missao = "Eliminar um inimigo da Vila da Areia";
+        sasuke.niveldedificuldade = "Média";
+        sasuke.statusdamissao = false;
+
         do {
 
-//                        menu
-            System.out.println("escolha um ninja!!");
-            System.out.println("1--naruto");
-            System.out.println("2--sasuke");
-            System.out.println("3-- sair");
+            System.out.println("\n=== ESCOLHA UM NINJA ===");
+            System.out.println("1 - Naruto");
+            System.out.println("2 - Sasuke");
+            System.out.println("3 - Sair");
 
-            opcao=caixadetexto.nextInt();
+            opcao = caixadetexto.nextInt();
 
-//
-
-            ninjas naruto = new ninjas();
-            naruto.nome = "naruto";
-            naruto.aldeia = "aldeia da folha";
-            naruto.idade = 17;
-            naruto.missao = "salvar um cachorro";
-            naruto.niveldedificuldade = "fácil";
-            naruto.statusdamissao = false;
-
-
-//
-
-            uchiha sasuke = new uchiha();
-            sasuke.nome = "sasuke";
-            sasuke.aldeia = "aldeia da folha";
-            sasuke.idade = 18;
-            sasuke.missao = "matar um genin da vila da areia";
-            sasuke.niveldedificuldade = "média";
-            sasuke.statusdamissao = false;
-
-
-
-//
             switch (opcao) {
-                case (1):
-                    System.out.println("--informações do naruto--");
-                    System.out.println("nome: " + naruto.nome);
-                    System.out.println("idade: " + naruto.idade);
-                    System.out.println("aldeia: " + naruto.aldeia);
-                    System.out.println("missão: " + naruto.missao);
-                    System.out.println("nivel de dificuldade da missão: " + naruto.niveldedificuldade);
-                    System.out.println("status da missão: " + naruto.statusdamissao);
+
+                case 1:
+                    naruto.mostrarInformacoes();
+
+                    System.out.println("\n1 - Concluir missão");
+                    System.out.println("2 - Voltar");
+
+                    int escolhaNaruto = caixadetexto.nextInt();
+
+                    if (escolhaNaruto == 1) {
+                        naruto.concluirMissao();
+                    }
                     break;
 
-                case (2):
-                    System.out.println("--informações do sasuke--");
-                    System.out.println("nome: " + sasuke.nome);
-                    System.out.println("idade: " + sasuke.idade);
-                    System.out.println("aldeia: " + sasuke.aldeia);
-                    System.out.println("missão: " + sasuke.missao);
-                    System.out.println("nivel de dificuldade da missão: " + sasuke.niveldedificuldade);
-                    System.out.println("status da missão: " + sasuke.statusdamissao);
-                    System.out.println("habilidade secreta é :"+ sasuke.sharingan);
+                case 2:
+                    sasuke.mostrarInformacoes();
+
+                    System.out.println("\n1 - Concluir missão");
+                    System.out.println("2 - Voltar");
+
+                    int escolhaSasuke = caixadetexto.nextInt();
+
+                    if (escolhaSasuke == 1) {
+                        sasuke.concluirMissao();
+                    }
                     break;
 
-                case (3):
-                    System.out.println("saindo...");
+                case 3:
+                    System.out.println("Saindo do sistema...");
                     break;
 
                 default:
-                    System.out.println("opção inválida");
-
+                    System.out.println("Opção inválida!");
             }
-            System.out.println();
 
-        } while (opcao !=3);
+        } while (opcao != 3);
 
+        caixadetexto.close();
     }
 }
